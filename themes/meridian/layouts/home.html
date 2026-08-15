@@ -1,0 +1,69 @@
+{{ define "main" }}
+{{- $data := hugo.Data.site -}}
+{{- $links := $data.links -}}
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>{{ site.Title }}</h1>
+    <p class="tagline">{{ site.Params.tagline }}</p>
+    <div class="hero-welcome">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+{{- $blog := site.GetPage "/blog" }}
+{{- with $blog }}
+<section class="home-section" id="blog">
+  <h2 class="section-label">Свежие посты</h2>
+  <div class="section-body">
+    <ul class="post-list">
+      {{- range first 5 (.RegularPagesRecursive.ByDate.Reverse) }}
+      <li class="post-item">
+        <a class="post-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "date.html" .Date }}</time>
+      </li>
+      {{- end }}
+    </ul>
+    <p><a class="link-arrow" href="{{ .RelPermalink }}">Все посты →</a></p>
+  </div>
+</section>
+{{- end }}
+
+{{- with $data.projects }}
+<section class="home-section" id="projects">
+  <h2 class="section-label">Проекты</h2>
+  <div class="section-body">
+    <ul class="dot-list">
+      {{- range . }}
+      <li>
+        <span class="dot"></span>
+        <span class="dot-content">
+          {{- if .url }}<a class="prog-name" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}<span class="prog-name">{{ .name }}</span>{{ end }}
+          {{- with .note }}<span class="prog-note">{{ . }}</span>{{ end }}
+        </span>
+      </li>
+      {{- end }}
+    </ul>
+    {{- with site.GetPage "/proekty" }}
+    <p><a class="link-arrow" href="{{ .RelPermalink }}">Подробнее о проектах →</a></p>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
+{{- with $data.contacts_lead }}
+<section class="home-section" id="contacts">
+  <h2 class="section-label">Контакты</h2>
+  <div class="section-body">
+    <p class="lead">{{ . }}</p>
+    <p class="cta">
+      {{- with $links.telegram }}<a href="{{ . }}" target="_blank" rel="noopener">Телеграм</a>{{ end }}
+      {{- with $links.email }} · <a href="mailto:{{ replace . "@" "&#64;" | safeHTML }}">почта</a>{{ end }}
+      {{- with $links.github }} · <a href="{{ . }}" target="_blank" rel="noopener">гитхаб</a>{{ end }}
+    </p>
+  </div>
+</section>
+{{- end }}
+
+{{ end }}
