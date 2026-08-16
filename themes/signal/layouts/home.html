@@ -39,22 +39,12 @@
 {{- end }}
 {{- end }}
 
-{{/* ============ 3. ПРОЕКТЫ ============ */}}
-{{- with $s.projects }}
+{{/* ============ 3. ТЕЛЕГРАМ-КАНАЛ ============ */}}
+{{- with $links.telegram }}
 <section class="block">
-  <h2>Проекты</h2>
-  <ul class="starred-list">
-    {{- range . }}
-    <li>
-      {{- if .url }}<a class="big-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
-      {{- else }}<span class="big-link">{{ .name }}</span>{{ end }}
-      {{- with .note }} <span class="aside">— {{ . }}</span>{{ end }}
-    </li>
-    {{- end }}
-  </ul>
-  {{- with site.GetPage "/proekty" }}
-  <p class="cta"><a class="arrow-link" href="{{ .RelPermalink }}">Все проекты&nbsp;→</a></p>
-  {{- end }}
+  <h2>Телеграм-канал</h2>
+  <p class="lede">Больше заметок, коротких мыслей и анонсов — в канале. Подписывайтесь, чтобы не пропустить новое.</p>
+  <p class="cta"><a class="arrow-link" href="{{ . }}" target="_blank" rel="noopener">Перейти в канал&nbsp;→</a></p>
 </section>
 {{- end }}
 
