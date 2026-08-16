@@ -2,8 +2,16 @@
 {{- $s := hugo.Data.site -}}
 {{- $links := $s.links -}}
 
-{{/* ============ 1. HERO (без фото) ============ */}}
+{{/* ============ 1. HERO (с фото) ============ */}}
 <section class="hero">
+  {{- with resources.Get site.Params.heroImage }}
+  {{- $img := .Fill "240x240 Center" }}
+  {{- $img2x := .Fill "480x480 Center" }}
+  <div class="hero-photo">
+    <img src="{{ $img.RelPermalink }}" srcset="{{ $img.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x"
+         width="240" height="240" alt="{{ site.Params.author }}" loading="eager">
+  </div>
+  {{- end }}
   <div class="hero-text">
     <h1 class="title">{{ site.Title }}</h1>
     {{- with site.Params.tagline }}<p class="tagline">{{ . }}</p>{{ end }}
@@ -55,7 +63,7 @@
   <h2>Контакты</h2>
   {{- with $s.contacts_lead }}<p class="lede">{{ . }}</p>{{ end }}
   <p class="cta">
-    {{- with $links.telegram }}<a class="arrow-link" href="{{ . }}" target="_blank" rel="noopener">Телеграм&nbsp;→</a>{{ end }}
+    {{- with $links.telegram }}<a class="arrow-link" href="{{ . }}" target="_blank" rel="noopener">Телеграм-канал&nbsp;→</a>{{ end }}
     {{- with $links.email }}<a class="arrow-link" href="mailto:{{ replace . "@" "&#64;" | safeHTML }}">Почта&nbsp;→</a>{{ end }}
     {{- with $links.github }}<a class="arrow-link" href="{{ . }}" target="_blank" rel="noopener">Гитхаб&nbsp;→</a>{{ end }}
   </p>

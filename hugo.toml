@@ -3,25 +3,22 @@
 #   baseURL, title, [params] author/tagline/description
 # ============================================================
 
-baseURL = "https://alekhin.github.io/"   # ← замените на свой домен/адрес GitHub Pages (со слэшем на конце)
+baseURL = "https://bondurant84.github.io/bondurant84-blog/"
 locale = "ru-RU"
 defaultContentLanguage = "ru"
-title = "Алёхин Алексей"            # ← ваше имя: заголовок сайта и логотип в шапке
+title = "Алексей Алёхин"
 hasCJKLanguage = false
 enableEmoji = true
 timeZone = "Europe/Moscow"
 
-# Активная тема. Варианты: meridian · manuscript · signal · midnight
-# Переключение = правка этой строки. Быстрый предпросмотр без правки:
-#   hugo server --theme manuscript
 theme = "signal"
 enableRobotsTXT = true
 
 [params]
-  author = "Алёхин Алексей"         # ← подпись автора в постах и schema.org
+  author = "Алексей Алёхин"
   tagline = "Изнанка мира боёв"
   description = "Шизо-мемуары, жестокие писатели и фильмы про ублюдков — блог об изнанке мира боёв."
-  heroImage = "img/hero.jpg"       # портрет для страницы «Кто я» (лежит в assets/img/)
+  heroImage = "img/hero.jpg"
 
 [menus]
   [[menus.main]]
@@ -66,7 +63,7 @@ enableRobotsTXT = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true    # разрешает сырой HTML в markdown (нужно для внешних ссылок с target="_blank")
+      unsafe = true
   [markup.highlight]
     style = "github"
 
