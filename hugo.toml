@@ -19,6 +19,7 @@ enableRobotsTXT = true
   tagline = "Изнанка мира боёв"
   description = "Шизо-мемуары, жестокие писатели и фильмы про ублюдков — блог об изнанке мира боёв."
   heroImage = "img/hero.jpg"
+  homeImage = "img/home-hero.jpg"
 
 [menus]
   [[menus.main]]
