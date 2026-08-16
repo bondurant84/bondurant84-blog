@@ -18,7 +18,6 @@
 {{- with hugo.Data.site.links }}
 <ul class="extras-list">
   {{- with .email }}<li><span class="extras-name">Почта</span><span class="extras-note"><a href="mailto:{{ replace . "@" "&#64;" | safeHTML }}">{{ replace . "@" "&#64;" | safeHTML }}</a></span></li>{{ end }}
-  {{- with .telegram }}<li><span class="extras-name">Телеграм</span><span class="extras-note"><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></span></li>{{ end }}
   {{- with .github }}<li><span class="extras-name">Гитхаб</span><span class="extras-note"><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></span></li>{{ end }}
 </ul>
 {{- end }}
