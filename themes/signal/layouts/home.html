@@ -4,7 +4,7 @@
 
 {{/* ============ 1. HERO (с фото) ============ */}}
 <section class="hero">
-  {{- with resources.Get site.Params.heroImage }}
+  {{- with resources.Get site.Params.homeImage }}
   {{- $img := .Fill "240x240 Center" }}
   {{- $img2x := .Fill "480x480 Center" }}
   <div class="hero-photo">
